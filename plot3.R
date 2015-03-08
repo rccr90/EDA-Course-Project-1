@@ -19,3 +19,14 @@ lines(data$Times, as.numeric(as.character(data$Sub_metering_2)), col = "red", ty
 lines(data$Times, data$Sub_metering_3, col = "blue", type = "l")
 legend("topright", pch = 1, col = c("black","red", "blue"),legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
 
+##Creat png file
+png("plot3.png", width = 480, height = 480)
+
+plot(y = as.numeric(as.character(data$Sub_metering_1)), x = data$Times, type = "l", col = "black",
+     yaxt="n", ylab = "Energy sub metering", ylim = c(-.1,40))
+axis(2, at = c(0,10,20,30))
+lines(data$Times, as.numeric(as.character(data$Sub_metering_2)), col = "red", type = "l")
+lines(data$Times, data$Sub_metering_3, col = "blue", type = "l")
+legend("topright", pch = 1, col = c("black","red", "blue"),legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+
+dev.off()
